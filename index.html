@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Connexion</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+
+  <!-- Lottie Player (conservé mais masqué) -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+<body>
+  <div class="bg-blobs" aria-hidden="true">
+    <!-- orbes décoratifs animés -->
+    <span class="orb orb-a"></span>
+    <span class="orb orb-b"></span>
+    <span class="orb orb-c"></span>
+  </div>
+
+  <main class="login-wrapper">
+    <section class="login-card" id="card">
+      <div class="brand-row">
+        <!-- Lottie d’origine : conservé mais masqué -->
+        <lottie-player
+          id="heroLottie"
+          src="https://assets10.lottiefiles.com/packages/lf20_jcikwtux.json"
+          background="transparent"
+          speed="0.7"
+          loop
+          autoplay
+          style="width:72px;height:72px;display:none"
+          aria-hidden="true">
+        </lottie-player>
+
+        <!-- Nouveau logo PNG animé -->
+        <img
+          id="brandLogo"
+          class="brand-logo"
+          src="public/images/logo.png"
+          alt="Logo Kreolyse"
+          width="72"
+          height="72" />
+
+        <div>
+          <h1 class="app-title">Bienvenue </h1>
+          <p class="app-subtitle">Module d'Accès à l’application Kreolyse</p>
+        </div>
+      </div>
+
+      <form id="loginForm">
+        <label for="username">Renseignez ici votre Nom d'utilisateur</label>
+        <input type="text" id="username" name="username" placeholder="Un prénom/pseudo suffira" required />
+        <button type="submit" class="btn-primary">Continuer</button>
+      </form>
+    </section>
+
+    <!-- Logo sous-bloc centré et animé -->
+    <div class="sublogo-block" id="subLogoBlock">
+      <img
+        id="subLogo"
+        class="sublogo-img"
+        src="public/images/logo-sousbloc.png"
+        alt="Kreolyse sous-bloc" />
+      <div id="subLogoHint" class="sublogo-hint" role="note" aria-live="polite">
+        <div>
+         <strong>Kréolyse</strong> est un <strong>TRADUCTEUR AUTOMATIQUE DE MOTS</strong> en Français vers le créole Guyanais et à terme bidirectionnelle.<br><br>
+         C'est également un projet à long terme, une application et une démonstration classique, à ce stade, de mes apprentissages.<br><br> 
+        <strong>KREOLYSE</strong> est une application développée avec ❤️ par Kyrstian pour 7AIPRODUCTIONS.<br><br>
+        </div>
+        <div>Tous droits réservés. Version 11/2025.</div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal avertissement existant -->
+  <div class="overlay" id="betaOverlay" aria-hidden="true">
+    <div class="beta-modal" id="betaModal">
+      <h2>Merci de tester notre application en version bêta !</h2>
+      <p>
+        Merci de tester cette application en version bêta ! 
+        Cette version est encore en cours de construction et d’amélioration : certaines fonctionnalités peuvent évoluer ou comporter des erreurs. Votre retour est précieux pour m'aider à la perfectionner.<br><br>
+        En échange de cet accès anticipé, je compte sur vous pour respecter la confidentialité de cette phase de test : <strong>merci de ne pas partager le lien de l'application</strong> avant son lancement officiel.<br><br>
+        Ensemble, faisons de cet outil quelque chose d’exceptionnel. <br> 
+        Je peux vous faire confiance ?
+      </p>
+      <label class="checkbox-line">
+        <input type="checkbox" id="acceptCheckbox" />
+        <span>Oui j’accepte ces conditions</span>
+      </label>
+      <button class="btn-secondary" id="closeModal" disabled>Continuer</button>
+    </div>
+  </div>
+
+  <!-- Mini-fenêtre email (nouvelle) -->
+  <div class="overlay" id="mailOverlay" aria-hidden="true">
+    <div class="beta-modal mail-modal" id="mailModal">
+      <h2>Écrire un email</h2>
+      <p>Envoyer un mail à Krystian de 7idproductions ?</p>
+      <div class="mail-actions">
+        <button class="btn-secondary btn-ghost" id="mailNo">Non</button>
+        <button class="btn-primary btn-yes" id="mailYes">Oui</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
